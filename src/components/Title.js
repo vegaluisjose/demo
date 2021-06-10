@@ -5,7 +5,7 @@ class Title extends Component {
 
     render() {
         return (
-            <h1 class="title">
+            <h1 className="title">
                 Demo
             </h1>
         );

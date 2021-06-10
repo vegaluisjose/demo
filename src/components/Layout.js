@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Grid from './Grid';
 
 class Layout extends Component {
 
@@ -9,6 +10,7 @@ class Layout extends Component {
     render() {
         return (
             <div>
+                <Grid/>
                 <p>Iteration: {this.state.value}</p>
             </div>
         );

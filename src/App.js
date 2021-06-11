@@ -6,30 +6,9 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import 'fontsource-roboto';
 
-// const classes = {
-//   paper: {
-//     height: 140,
-//     width: 100
-//   },
-//   control: {
-//     padding: 20,
-//     marginTop: 15,
-//     background: "#fc3"
-//   }
-// };
-
 class App extends Component {
 
-  renderCell = (value, index) => {
-    return (
-      <Grid item>
-        <Paper style={{ height:75, width: 50 }}/>
-      </Grid>
-    );
-  }
-
   render() {
-    const elements = ['lut', 'lut', 'lut', 'dsp', 'lut', 'lut'];
     return (
       <Container>
         <div className="App">
@@ -37,14 +16,26 @@ class App extends Component {
             <Typography variant="h2" component="div">
               Demo
             </Typography>
-            <Grid container spacing={2} justify="center">
-              {[...Array(50)].map((v, i) => this.renderCell(v, i))}
+            <Grid container direction="column">
+            {[...Array(1)].map((v) =>
+                <Grid container xs={2} justify="center">
+                  <Grid container item xs={1} direction="column">
+                    {[...Array(40)].map((v) =>
+                      <Grid item>
+                        <Paper style={{ height:10, width: 10 }}/>
+                      </Grid>
+                    )}
+                  </Grid>
+                  <Grid item>
+                      <Paper style={{ height:400, width: 10 }}/>
+                    </Grid>
+                </Grid>
+            )}
             </Grid>
           </header>
         </div>
       </Container>
-    );
-  }
+  )}
 
 }
 

@@ -20,17 +20,25 @@ class Layout extends Component {
         );
     }
 
+    renderDefault = (placed) => {
+        return (
+            <Grid item>
+                <Paper style={{ backgroundColor: placed ? "#FF0000" : "#000000", height:10, width: 10 }}/>
+            </Grid>
+        );
+    }
+
     renderCell = (prim, placed) => {
         switch (prim) {
             case "dsp": return this.renderDsp(placed);
             case "lut": return this.renderLut(placed);
-            default: return <h1>Error</h1>
+            default: return this.renderDefault(placed);
         }
     }
 
     renderColumn = (prim, col) => {
         return (
-            <Grid container item xs="auto" sm="auto" md="auto" lg="auto" xl="auto" direction="column">
+            <Grid container item direction="column">
                 {col.map((placed) => this.renderCell(prim, placed))}
             </Grid>
         );
@@ -38,8 +46,8 @@ class Layout extends Component {
 
     render() {
         return (
-            <Grid container wrap="nowrap" xs="auto" sm="auto" md="auto" lg="auto" xl="auto" justify="center">
-                {this.props.layout.map((col) => this.renderColumn(col.prim, col.placed))}
+            <Grid container wrap="nowrap" justify="center">
+                {this.props.layout.map((col, i) => this.renderColumn(col.prim, col.placed))}
             </Grid>
         );
     }

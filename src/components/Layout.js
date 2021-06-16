@@ -7,7 +7,7 @@ class Layout extends Component {
     renderLut = (placed) => {
         return (
             <Grid item>
-                <Paper style={{ backgroundColor: placed ? "#006563" : "#00fff0", height:10, width: 10 }}/>
+                <Paper style={{ backgroundColor: placed ? "#61dafb" : "#626366", height:10, width: 10 }}/>
             </Grid>
         );
     }
@@ -15,7 +15,7 @@ class Layout extends Component {
     renderDsp = (placed) => {
         return (
             <Grid item>
-                <Paper style={{ backgroundColor: placed ? "#FF0000" : "#000000", height:25, width: 10 }}/>
+                <Paper style={{ backgroundColor: placed ? "#61dafb" : "#626366", height:25, width: 10 }}/>
             </Grid>
         );
     }
@@ -23,7 +23,7 @@ class Layout extends Component {
     renderDefault = (placed) => {
         return (
             <Grid item>
-                <Paper style={{ backgroundColor: placed ? "#FF0000" : "#000000", height:10, width: 10 }}/>
+                <Paper style={{ backgroundColor: placed ? "#61dafb" : "#626366", height:10, width: 10 }}/>
             </Grid>
         );
     }
@@ -36,18 +36,18 @@ class Layout extends Component {
         }
     }
 
-    renderColumn = (prim, col) => {
+    renderColumn = (prim, elem) => {
         return (
             <Grid container item direction="column">
-                {col.map((placed) => this.renderCell(prim, placed))}
+                {elem.map((placed) => this.renderCell(prim, placed))}
             </Grid>
         );
     }
 
     render() {
         return (
-            <Grid container wrap="nowrap" justify="center">
-                {this.props.layout.map((col, i) => this.renderColumn(col.prim, col.placed))}
+            <Grid container wrap="nowrap" xs={1} justify="center">
+                {this.props.layout.map((col, i) => this.renderColumn(col.prim, col.elem))}
             </Grid>
         );
     }

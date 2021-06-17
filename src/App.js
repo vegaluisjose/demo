@@ -19,16 +19,22 @@ class App extends Component {
     try {
       const wasm = await import("demo");
       this.setState({ wasm });
-      let layout = await wasm.greet("dsp");
+      let layout = await wasm.init();
       this.setState({ layout: layout.col });
     } catch (err) {
       console.error(`Unexpected error in loadWasm. [Message: ${err.message}]`);
     }
-  };
+  }
 
-  loadLayout = async () => {
+  clearLayout = async () => {
     const { wasm = {} } = this.state;
-    let layout = await wasm.greet("dsp");
+    let layout = await wasm.init();
+    this.setState({ layout: layout.col });
+  }
+
+  randomLayout = async () => {
+    const { wasm = {} } = this.state;
+    let layout = await wasm.random();
     this.setState({ layout: layout.col });
   }
 
@@ -42,9 +48,16 @@ class App extends Component {
               <Button
                 color="primary"
                 variant="contained"
-                onClick={this.loadLayout}
+                onClick={this.clearLayout}
               >
-                Load
+                Clear
+              </Button>
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={this.randomLayout}
+              >
+                Random
               </Button>
             </div>
           </header>

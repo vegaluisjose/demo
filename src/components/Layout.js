@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper'
 
 class Layout extends Component {
 
-    renderLut = (placed) => {
+    renderSmallCell = (placed) => {
         return (
             <Grid item>
                 <Paper style={{ backgroundColor: placed ? "#61dafb" : "#626366", height:10, width: 10 }}/>
@@ -12,7 +12,7 @@ class Layout extends Component {
         );
     }
 
-    renderDsp = (placed) => {
+    renderLargeCell = (placed) => {
         return (
             <Grid item>
                 <Paper style={{ backgroundColor: placed ? "#61dafb" : "#626366", height:25, width: 10 }}/>
@@ -20,19 +20,13 @@ class Layout extends Component {
         );
     }
 
-    renderDefault = (placed) => {
-        return (
-            <Grid item>
-                <Paper style={{ backgroundColor: placed ? "#61dafb" : "#626366", height:10, width: 10 }}/>
-            </Grid>
-        );
-    }
-
     renderCell = (prim, placed) => {
         switch (prim) {
-            case "dsp": return this.renderDsp(placed);
-            case "lut": return this.renderLut(placed);
-            default: return this.renderDefault(placed);
+            case "dsp": return this.renderLargeCell(placed);
+            case "bram": return this.renderLargeCell(placed);
+            case "lutm": return this.renderSmallCell(placed);
+            case "lutl": return this.renderSmallCell(placed);
+            default: return this.renderSmallCell(placed);
         }
     }
 

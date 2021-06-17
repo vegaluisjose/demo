@@ -15,8 +15,10 @@
     "demo": "file:./rust/pkg"
   },
   "scripts": {
+    "preinstall": "cd rust; wasm-pack build; cd ..;",
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "react-app-rewired build; cd rust; wasm-pack build; cd ..;",
+    "clean": "rm -rf rust/pkg; cd rust; cargo clean",
     "test": "react-app-rewired test"
   },
   "eslintConfig": {

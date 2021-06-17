@@ -1,6 +1,6 @@
 {
   "name": "material-demo",
-  "homepage": "https://vegaluisjose.github.io/demo/",
+  "homepage": "https://vegaluisjose.github.io/demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "demo": "file:./rust/pkg",
     "fontsource-roboto": "^4.0.0",
-    "gh-pages": "^3.2.1",
+    "gh-pages": "3.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",

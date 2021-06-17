@@ -46,14 +46,12 @@ class App extends Component {
             <Layout layout={this.state.layout} />
             <div className="controls">
               <Button
-                color="primary"
                 variant="contained"
                 onClick={this.clearLayout}
               >
                 Clear
               </Button>
               <Button
-                color="primary"
                 variant="contained"
                 onClick={this.randomLayout}
               >

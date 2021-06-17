@@ -40,7 +40,7 @@ class Layout extends Component {
 
     render() {
         return (
-            <Grid container wrap="nowrap" xs={1} justify="center">
+            <Grid container wrap="nowrap" justify="center">
                 {this.props.layout.map((col, i) => this.renderColumn(col.prim, col.elem))}
             </Grid>
         );
